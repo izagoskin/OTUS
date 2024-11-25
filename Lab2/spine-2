@@ -53,3 +53,87 @@ router ospf 1
    max-lsa 12000
 !
 end
+Spine-2#sh ip route
+
+VRF: default
+Codes: C - connected, S - static, K - kernel,
+       O - OSPF, IA - OSPF inter area, E1 - OSPF external type 1,
+       E2 - OSPF external type 2, N1 - OSPF NSSA external type 1,
+       N2 - OSPF NSSA external type2, B - Other BGP Routes,
+       B I - iBGP, B E - eBGP, R - RIP, I L1 - IS-IS level 1,
+       I L2 - IS-IS level 2, O3 - OSPFv3, A B - BGP Aggregate,
+       A O - OSPF Summary, NG - Nexthop Group Static Route,
+       V - VXLAN Control Service, M - Martian,
+       DH - DHCP client installed default route,
+       DP - Dynamic Policy Route, L - VRF Leaked,
+       G  - gRIBI, RC - Route Cache Route
+
+Gateway of last resort is not set
+
+ O        10.0.1.0/30 [110/20] via 10.0.2.2, Ethernet1
+ O        10.0.1.4/30 [110/20] via 10.0.2.6, Ethernet2
+ O        10.0.1.8/30 [110/20] via 10.0.2.10, Ethernet3
+ C        10.0.2.0/30 is directly connected, Ethernet1
+ C        10.0.2.4/30 is directly connected, Ethernet2
+ C        10.0.2.8/30 is directly connected, Ethernet3
+ O        10.0.3.0/30 [110/20] via 10.0.2.2, Ethernet1
+ O        10.0.3.4/30 [110/20] via 10.0.2.6, Ethernet2
+ O        10.0.3.8/30 [110/20] via 10.0.2.10, Ethernet3
+ O        172.16.254.1/32 [110/30] via 10.0.2.2, Ethernet1
+                                   via 10.0.2.6, Ethernet2
+                                   via 10.0.2.10, Ethernet3
+ C        172.16.254.2/32 is directly connected, Loopback1
+ O        172.16.254.3/32 [110/30] via 10.0.2.2, Ethernet1
+                                   via 10.0.2.6, Ethernet2
+                                   via 10.0.2.10, Ethernet3
+ O        172.16.254.21/32 [110/20] via 10.0.2.2, Ethernet1
+ O        172.16.254.22/32 [110/20] via 10.0.2.6, Ethernet2
+ O        172.16.254.23/32 [110/20] via 10.0.2.10, Ethernet3
+ O        172.16.255.1/32 [110/30] via 10.0.2.2, Ethernet1
+                                   via 10.0.2.6, Ethernet2
+                                   via 10.0.2.10, Ethernet3
+ C        172.16.255.2/32 is directly connected, Loopback0
+ O        172.16.255.3/32 [110/30] via 10.0.2.2, Ethernet1
+                                   via 10.0.2.6, Ethernet2
+                                   via 10.0.2.10, Ethernet3
+ O        172.16.255.21/32 [110/20] via 10.0.2.2, Ethernet1
+ O        172.16.255.22/32 [110/20] via 10.0.2.6, Ethernet2
+ O        172.16.255.23/32 [110/20] via 10.0.2.10, Ethernet3
+
+Spine-2#
+Spine-2#ping 172.16.255.21
+PING 172.16.255.21 (172.16.255.21) 72(100) bytes of data.
+80 bytes from 172.16.255.21: icmp_seq=1 ttl=64 time=5.21 ms
+80 bytes from 172.16.255.21: icmp_seq=2 ttl=64 time=4.07 ms
+80 bytes from 172.16.255.21: icmp_seq=3 ttl=64 time=3.76 ms
+80 bytes from 172.16.255.21: icmp_seq=4 ttl=64 time=3.28 ms
+80 bytes from 172.16.255.21: icmp_seq=5 ttl=64 time=3.25 ms
+
+--- 172.16.255.21 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 21ms
+rtt min/avg/max/mdev = 3.251/3.917/5.212/0.719 ms, ipg/ewma 5.418/4.522 ms
+Spine-2#
+Spine-2#ping 172.16.255.22
+PING 172.16.255.22 (172.16.255.22) 72(100) bytes of data.
+80 bytes from 172.16.255.22: icmp_seq=1 ttl=64 time=5.40 ms
+80 bytes from 172.16.255.22: icmp_seq=2 ttl=64 time=4.11 ms
+80 bytes from 172.16.255.22: icmp_seq=3 ttl=64 time=3.10 ms
+80 bytes from 172.16.255.22: icmp_seq=4 ttl=64 time=2.90 ms
+80 bytes from 172.16.255.22: icmp_seq=5 ttl=64 time=2.95 ms
+
+--- 172.16.255.22 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 20ms
+rtt min/avg/max/mdev = 2.902/3.695/5.402/0.960 ms, ipg/ewma 5.148/4.494 ms
+Spine-2#
+[K3172.16.255.22
+PING 172.16.255.23 (172.16.255.23) 72(100) bytes of data.
+80 bytes from 172.16.255.23: icmp_seq=1 ttl=64 time=4.83 ms
+80 bytes from 172.16.255.23: icmp_seq=2 ttl=64 time=3.21 ms
+80 bytes from 172.16.255.23: icmp_seq=3 ttl=64 time=3.04 ms
+80 bytes from 172.16.255.23: icmp_seq=4 ttl=64 time=2.83 ms
+80 bytes from 172.16.255.23: icmp_seq=5 ttl=64 time=2.69 ms
+
+--- 172.16.255.23 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 18ms
+rtt min/avg/max/mdev = 2.698/3.326/4.836/0.777 ms, ipg/ewma 4.546/4.043 ms
+Spine-2#
