@@ -54,3 +54,87 @@ router ospf 1
 !
 end
 Leaf-3#
+Leaf-3#sh ip route
+
+VRF: default
+Codes: C - connected, S - static, K - kernel,
+       O - OSPF, IA - OSPF inter area, E1 - OSPF external type 1,
+       E2 - OSPF external type 2, N1 - OSPF NSSA external type 1,
+       N2 - OSPF NSSA external type2, B - Other BGP Routes,
+       B I - iBGP, B E - eBGP, R - RIP, I L1 - IS-IS level 1,
+       I L2 - IS-IS level 2, O3 - OSPFv3, A B - BGP Aggregate,
+       A O - OSPF Summary, NG - Nexthop Group Static Route,
+       V - VXLAN Control Service, M - Martian,
+       DH - DHCP client installed default route,
+       DP - Dynamic Policy Route, L - VRF Leaked,
+       G  - gRIBI, RC - Route Cache Route
+
+Gateway of last resort is not set
+
+ O        10.0.1.0/30 [110/20] via 10.0.1.9, Ethernet1
+ O        10.0.1.4/30 [110/20] via 10.0.1.9, Ethernet1
+ C        10.0.1.8/30 is directly connected, Ethernet1
+ O        10.0.2.0/30 [110/20] via 10.0.2.9, Ethernet2
+ O        10.0.2.4/30 [110/20] via 10.0.2.9, Ethernet2
+ C        10.0.2.8/30 is directly connected, Ethernet2
+ O        10.0.3.0/30 [110/20] via 10.0.3.9, Ethernet3
+ O        10.0.3.4/30 [110/20] via 10.0.3.9, Ethernet3
+ C        10.0.3.8/30 is directly connected, Ethernet3
+ O        172.16.254.1/32 [110/20] via 10.0.1.9, Ethernet1
+ O        172.16.254.2/32 [110/20] via 10.0.2.9, Ethernet2
+ O        172.16.254.3/32 [110/20] via 10.0.3.9, Ethernet3
+ O        172.16.254.21/32 [110/30] via 10.0.1.9, Ethernet1
+                                    via 10.0.2.9, Ethernet2
+                                    via 10.0.3.9, Ethernet3
+ O        172.16.254.22/32 [110/30] via 10.0.1.9, Ethernet1
+                                    via 10.0.2.9, Ethernet2
+                                    via 10.0.3.9, Ethernet3
+ C        172.16.254.23/32 is directly connected, Loopback1
+ O        172.16.255.1/32 [110/20] via 10.0.1.9, Ethernet1
+ O        172.16.255.2/32 [110/20] via 10.0.2.9, Ethernet2
+ O        172.16.255.3/32 [110/20] via 10.0.3.9, Ethernet3
+ O        172.16.255.21/32 [110/30] via 10.0.1.9, Ethernet1
+                                    via 10.0.2.9, Ethernet2
+                                    via 10.0.3.9, Ethernet3
+ O        172.16.255.22/32 [110/30] via 10.0.1.9, Ethernet1
+                                    via 10.0.2.9, Ethernet2
+                                    via 10.0.3.9, Ethernet3
+ C        172.16.255.23/32 is directly connected, Loopback0
+
+Leaf-3#
+Leaf-3#ping 172.16.255.1
+PING 172.16.255.1 (172.16.255.1) 72(100) bytes of data.
+80 bytes from 172.16.255.1: icmp_seq=1 ttl=64 time=6.77 ms
+80 bytes from 172.16.255.1: icmp_seq=2 ttl=64 time=3.55 ms
+80 bytes from 172.16.255.1: icmp_seq=3 ttl=64 time=3.27 ms
+80 bytes from 172.16.255.1: icmp_seq=4 ttl=64 time=3.41 ms
+80 bytes from 172.16.255.1: icmp_seq=5 ttl=64 time=3.12 ms
+
+--- 172.16.255.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 25ms
+rtt min/avg/max/mdev = 3.125/4.028/6.777/1.383 ms, ipg/ewma 6.253/5.347 ms
+Leaf-3#
+Leaf-3#ping 172.16.255.2
+PING 172.16.255.2 (172.16.255.2) 72(100) bytes of data.
+80 bytes from 172.16.255.2: icmp_seq=1 ttl=64 time=5.50 ms
+80 bytes from 172.16.255.2: icmp_seq=2 ttl=64 time=3.35 ms
+80 bytes from 172.16.255.2: icmp_seq=3 ttl=64 time=3.44 ms
+80 bytes from 172.16.255.2: icmp_seq=4 ttl=64 time=3.10 ms
+80 bytes from 172.16.255.2: icmp_seq=5 ttl=64 time=3.29 ms
+
+--- 172.16.255.2 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 21ms
+rtt min/avg/max/mdev = 3.109/3.741/5.509/0.893 ms, ipg/ewma 5.436/4.591 ms
+Leaf-3#
+Leaf-3#ping 172.16.255.3
+PING 172.16.255.3 (172.16.255.3) 72(100) bytes of data.
+80 bytes from 172.16.255.3: icmp_seq=1 ttl=64 time=5.31 ms
+80 bytes from 172.16.255.3: icmp_seq=2 ttl=64 time=4.29 ms
+80 bytes from 172.16.255.3: icmp_seq=3 ttl=64 time=3.78 ms
+80 bytes from 172.16.255.3: icmp_seq=4 ttl=64 time=3.21 ms
+80 bytes from 172.16.255.3: icmp_seq=5 ttl=64 time=3.15 ms
+
+--- 172.16.255.3 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 21ms
+rtt min/avg/max/mdev = 3.150/3.953/5.319/0.804 ms, ipg/ewma 5.300/4.585 ms
+Leaf-3#
