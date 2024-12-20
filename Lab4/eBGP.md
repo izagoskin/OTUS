@@ -1,6 +1,6 @@
 ## eBGP Underlay
 Вводные: 2 спайна, 3 лифа, eBGP underlay
-![alt](https://github.com/izagoskin/OTUS/blob/c0bf1a5d016c42fa695e83bd4ad5e021a7351006/Lab2/schema.jpg "Схема")
+![alt](https://github.com/izagoskin/OTUS/blob/5c81d68059855adb4baf4b1e5d9b8f86e9548ee3/Lab4/ebgp.png "Схема")
 ### Leaf-1
 ```
 hostname Leaf-1
