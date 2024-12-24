@@ -5,7 +5,7 @@
          шаблоны в BGP не использовались сознательно, как и VRF
 
 ### Схема сети
-![alt](https://github.com/izagoskin/OTUS/blob/c0bf1a5d016c42fa695e83bd4ad5e021a7351006/Lab2/schema.jpg "Схема")
+![alt](https://github.com/izagoskin/OTUS/blob/de426d6ab0c10934939b14d93425cbdec9533b25/Lab5/L2EVPN.png "Схема")
 
 ### Leaf-1
 ```
