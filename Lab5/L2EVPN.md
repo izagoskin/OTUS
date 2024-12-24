@@ -4,6 +4,9 @@
          undelay OSPF, overlay iBGP
          шаблоны в BGP не использовались сознательно, как и VRF
 
+### Схема сети
+![alt](https://github.com/izagoskin/OTUS/blob/c0bf1a5d016c42fa695e83bd4ad5e021a7351006/Lab2/schema.jpg "Схема")
+
 ### Leaf-1
 ```
 service routing protocols model multi-agent
