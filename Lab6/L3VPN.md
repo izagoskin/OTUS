@@ -1,10 +1,10 @@
 ## L3VPN
-
-Вводные: 3 leaf, 2 spine, 2 host
-         Vlan 20 ip 10.10.20.0/24 - leaf-1
-         Vlan 30 ip 10.10.30.0/24 - leaf-2
+```
+Вводные: 3 leaf, 2 spine, 2 host;
+         Vlan 20 ip 10.10.20.0/24 - leaf-1;
+         Vlan 30 ip 10.10.30.0/24 - leaf-2;
 На спайнах никаких дополнительных настроек не проводилось
-
+```
 ### Схема сети
 ![alt](https://github.com/izagoskin/OTUS/blob/de426d6ab0c10934939b14d93425cbdec9533b25/Lab5/L2EVPN.png "Схема")
 
